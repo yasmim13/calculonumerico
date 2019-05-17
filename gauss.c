@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
- void fomarmatriz(float m[3][4],float aux[3][4]);
 
-void imprimirmatriz(float m[3][4]);
+void formar_matriz(float m[3][4],float aux[3][4]);
+void imprimir_matriz(float m[3][4]);
 
 int main (void)
 {
@@ -11,33 +11,35 @@ int main (void)
                   {-1,3,2,12},
                   {3,1,-3,0}};
    float mult, aux[3][4];
-   int v[4];
 
-    for(k=0;k<2;k++)
+    for(k=0; k<2; k++)  /*laço dos passos*/
     {
-        for(i=k+1;i<3;i++)
+        for(i=k+1; i<3; i++)  /*laço das linhas*/
         {
-            mult=m[i][k]/m[k][k];
-            for(j=0;j<4;j++)
-                aux[i][j]=m[i][j]-(mult*m[k][j]);
+            mult = m[i][k]/m[k][k];
+            for(j=0; j<4 ; j++)   /*laço das colunas*/
+                aux[i][j] = m[i][j]-(mult*m[k][j]);
         }
-        fomarmatriz(m,aux);
-        imprimirmatriz(m);
+
+        formar_matriz(m,aux);
+        imprimir_matriz(m);
     }       
     return 0;
 }
 
-void fomarmatriz(float m[3][4],float aux[3][4])
+
+/*coloca as linhas novas na matriz original*/
+void formar_matriz(float m[3][4],float aux[3][4])
 {
     for (int i=1;i<3;i++)
     {
         for(int j=0;j<4;j++)
             m[i][j]=aux[i][j];
-   }  
+    }  
     return;
 }
 
-void imprimirmatriz(float m[3][4])
+void imprimir_matriz(float m[3][4])
 {
 
     printf("\n");
