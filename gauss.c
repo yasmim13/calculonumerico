@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
+
 #define  L 4
 #define  C 5
+#define PI 3.1414
 
 void formar_matriz(float m[L][C],float aux[L][C]);
 void imprimir_matriz(float m[L][C]);
@@ -10,9 +13,10 @@ int main (void)
 {
     int i,j,k;
     float m[L][C] ={{0.2345, 0.6793, 0.0145, 1.3315, 3.032},
-                  {2.2360, 1.9861, 1.7723, 2.0315, 2.135},
-                  {1.7723, -7.3324, 5.1961, -2.8284, 1.015},
-                  {2.4142, 1.7320, -5.3171, 5.6785, 2.101}};
+                    {sqrt(5), 1.9861, -sqrt(PI), 2.0315, 2.135},
+                    {sqrt(PI), -7.3324, 3*sqrt(3), -2*sqrt(2), 1.015},
+                    {sqrt(2), sqrt(3), -3*sqrt(PI), 5.6785, 2.101}};
+
    float mult, aux[L][C];
 
     for(k=0; k<3; k++)  /*laço dos passos*/
